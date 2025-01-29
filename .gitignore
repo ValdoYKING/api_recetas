@@ -1,5 +1,5 @@
 # Entornos Virtuales de Python
-venv/
+.venv/
 __pycache__/
 *.py[cod]
 
