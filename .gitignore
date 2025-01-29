@@ -1,0 +1,40 @@
+# Entornos Virtuales de Python
+venv/
+__pycache__/
+*.py[cod]
+
+# Configuración de Entorno
+.env
+
+# Archivos de Configuración de Editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Archivos de Logs
+*.log
+
+# Archivos de Base de Datos
+*.sqlite3
+
+# Archivos y Carpetas de Docker
+*.dockerignore
+docker-compose.yml
+Dockerfile
+
+# Archivos de Node.js (si estás usando Node.js/React)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Archivos de Distribución (si estás usando algún paquete para distribución)
+dist/
+build/
+
+# Archivos Temporales del Sistema
+.DS_Store
+Thumbs.db
+
+# Archivos y Carpetas de Migrations (si usas Alembic)
+migrations/
