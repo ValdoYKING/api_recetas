@@ -1,18 +1,36 @@
-from typing import Union, List
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from .routers import recipes, users
+from .database import engine, Base
+from .models import recipe, user
+
+# Crea las tablas en la base de datos si no existen
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-class Recipe(BaseModel):
+@app.get("/")
+def read_root():
+    return {"message": "Hello World"}
+
+app.include_router(recipes.router)
+app.include_router(users.router)
+
+
+""" from typing import Union, List
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI() """
+
+""" class Recipe(BaseModel):
     title: str
     description: Union[str, None] = None
     ingredients: List[str]
     intruccions: str
     
-recipes = []
+recipes = [] """
 
-@app.get("/")
+""" @app.get("/")
 def read_root():
     return{"Hello": "Welcome to the Recipe API"}
 
@@ -43,4 +61,4 @@ def delete_recipe(recipe_id: int):
     if recipe_id >= len(recipes) or recipe_id < 0:
         raise HTTPException(status_code=404, detail="Recipe not found")
     recipe = recipes.pop(recipe_id)
-    return recipe
+    return recipe """
