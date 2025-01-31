@@ -12,7 +12,9 @@ def create_user(db: Session, user: schemas.UserCreate):
     db_user = models.User(
         username=user.username,
         email=user.email,
-        hashed_password=hashed_password
+        hashed_password=hashed_password,
+        is_active=True,
+        role="standard"
     )
     db.add(db_user)
     db.commit()
@@ -44,4 +46,12 @@ def delete_user(db: Session, user_id:int):
         db.delete(db_user)
         db.commit()
     return db_user
+
+def authenticate_user(db: Session, email: str, password: str):
+    user = get_user_by_email(db, email)
+    if not user:
+        return False
+    if not pwd_context.verify(password, user.hashed_password):
+        return False
+    return user
 
