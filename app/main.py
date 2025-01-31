@@ -14,6 +14,7 @@ def read_root():
 
 app.include_router(recipes.router)
 app.include_router(users.router)
+# app.include_router(auth.router)
 
 
 """ from typing import Union, List

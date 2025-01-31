@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from .. import models, schemas, crud, database
+from .. import models, schemas, crud, database, utils
 
 router = APIRouter()
 
 #Endpoint para crear una receta
 @router.post("/recipes/", response_model=schemas.Recipe)
-def create_recipe(recipe: schemas.RecipeCreate, db: Session = Depends(database.get_db)):
+def create_recipe(recipe: schemas.RecipeCreate, db: Session = Depends(database.get_db), admin_user: schemas.User = Depends(utils.get_admin_user)):
     return crud.create_recipe(db=db, recipe=recipe)
 
 #Endpoint para obtener una receta por ID
@@ -33,7 +33,7 @@ def update_recipe(recipe_id: int, recipe:schemas.RecipeCreate, db: Session = Dep
 
 #Endpoint para eliminar una receta
 @router.delete("/recipes/{recipe_id}", response_model=schemas.Recipe)
-def delete_recipe(recipe_id: int, db: Session = Depends(database.get_db)):
+def delete_recipe(recipe_id: int, db: Session = Depends(database.get_db), admin_user: schemas.User = Depends(utils.get_admin_user)):
     db_recipe = crud.delete_recipe(db, recipe_id=recipe_id)
     if db_recipe is None:
         raise HTTPException(status_code=404, detail="Recipe not found")
