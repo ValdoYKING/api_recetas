@@ -1,6 +1,8 @@
 # Recetas API
 
-Una API para gestionar recetas de cocina, incluyendo autenticación de usuarios, roles y permisos. Esta API está construida con FastAPI y SQLAlchemy.
+Una API para gestionar recetas de cocina, incluyendo autenticación de usuarios, roles y permisos.
+
+Esta API está construida con FastAPI y SQLAlchemy.
 
 ## Características
 
@@ -21,9 +23,10 @@ Una API para gestionar recetas de cocina, incluyendo autenticación de usuarios,
 1. Clona el repositorio:
 
    ```sh
-   git clone https://github.com/tu_usuario/recetas-api.git
+   git clone https://github.com/ValdoYKING/api_recetas.git
    cd recetas-api
 
+   ```
 2. Crea un entorno virtual e instala las dependencias:
 
    ```sh
@@ -31,8 +34,9 @@ Una API para gestionar recetas de cocina, incluyendo autenticación de usuarios,
    source venv/bin/activate  # En Windows usa `venv\Scripts\activate`
    pip install -r requirements.txt
 
+   ```
 3. Configura las variables de entorno:
-Crea un archivo .env en la raíz del proyecto y añade las siguientes variables:
+   Crea un archivo .env en la raíz del proyecto y añade las siguientes variables:
 
    ```sh
    .env
@@ -41,40 +45,41 @@ Crea un archivo .env en la raíz del proyecto y añade las siguientes variables:
    ACCESS_TOKEN_EXPIRE_MINUTES=30
    DATABASE_URL=sqlite:///./test.db  # O la URL de tu base de datos preferida
 
+   ```
 4. Inicializa la base de datos:
 
-    ```sh
-    alembic upgrade head
+   ```sh
+   alembic upgrade head
 
+   ```
 5. Ejecuta la aplicación:
 
-    ```sh
-    uvicorn app.main:app --reload
+   ```sh
+   uvicorn app.main:app --reload
+
+   ```
 
 ## Uso
+
 Una vez que la aplicación esté en funcionamiento, puedes acceder a la documentación automática generada por Swagger UI en http://127.0.0.1:8000/docs.
 
-Endpoints Principales
-/token: Obtiene un token de acceso.
+#### Endpoints Principales
 
-/users/me: Obtiene la información del usuario actual.
+**/users/me**: Obtiene la información del usuario actual.
 
-/recipes/: CRUD para recetas.
+**/recipes/**: CRUD para recetas.
 
-Contribuir
-Haz un fork del proyecto.
+### Contribuir
 
-Crea una nueva rama para tu característica (git checkout -b nueva-caracteristica).
+* Haz un fork del proyecto.
+* Crea una nueva rama para tu característica (git checkout -b nueva-caracteristica).
+* Realiza tus cambios y haz commit (git commit -am 'Añadir nueva característica').
+* Empuja tu rama (git push origin nueva-caracteristica).
+* Crea un nuevo Pull Request.
 
-Realiza tus cambios y haz commit (git commit -am 'Añadir nueva característica').
+### Licencia
 
-Empuja tu rama (git push origin nueva-caracteristica).
-
-Crea un nuevo Pull Request.
-
-Licencia
 Este proyecto está licenciado bajo los términos de la Licencia MIT.
-
 
 ### Resumen
 
@@ -85,5 +90,3 @@ Este proyecto está licenciado bajo los términos de la Licencia MIT.
 5. **Uso**: Explica cómo usar la API y acceder a la documentación.
 6. **Contribuir**: Describe cómo contribuir al proyecto.
 7. **Licencia**: Incluye la información de la licencia.
-
-Puedes ajustar y personalizar este archivo según las necesidades específicas de tu proyecto. Si tienes alguna pregunta o necesitas más detalles, ¡házmelo saber! 😊🚀 Continuemos con el desarrollo. 💡🔧
