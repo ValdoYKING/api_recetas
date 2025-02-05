@@ -5,6 +5,7 @@ class RecipeBase(BaseModel):
     description: str
     ingredients: str
     instructions: str
+    category: str
     
 class RecipeCreate(RecipeBase):
     pass 

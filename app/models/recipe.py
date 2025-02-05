@@ -8,3 +8,4 @@ class Recipe(Base):
     description = Column(Text)
     ingredients = Column(Text)
     instructions = Column(Text)
+    category = Column(String, index=True)

@@ -21,6 +21,7 @@ def update_recipe(db: Session, recipe_id: int, updated_recipe: schemas.RecipeCre
         db_recipe.description = updated_recipe.description
         db_recipe.ingredients = updated_recipe.ingredients
         db_recipe.instructions = updated_recipe.instructions
+        db_recipe.category = updated_recipe.category
         db.commit()
         db.refresh(db_recipe)
     return db_recipe

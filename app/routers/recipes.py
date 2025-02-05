@@ -6,7 +6,8 @@ router = APIRouter()
 
 #Endpoint para crear una receta
 @router.post("/recipes/", response_model=schemas.Recipe)
-def create_recipe(recipe: schemas.RecipeCreate, db: Session = Depends(database.get_db), admin_user: schemas.User = Depends(utils.get_admin_user)):
+# def create_recipe(recipe: schemas.RecipeCreate, db: Session = Depends(database.get_db), admin_user: schemas.User = Depends(utils.get_admin_user)):
+def create_recipe(recipe: schemas.RecipeCreate, db: Session = Depends(database.get_db)):
     return crud.create_recipe(db=db, recipe=recipe)
 
 #Endpoint para obtener una receta por ID
